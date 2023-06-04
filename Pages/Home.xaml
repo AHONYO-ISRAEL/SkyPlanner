@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SkyPlanner"
+             x:Class="SkyPlanner.Pages.Home"
+              
+             Title="Home">
+    <Grid Padding="10">
+        <Frame HeightRequest="180" Margin="0,-100,0,0"  VerticalOptions="Start" Padding="0, -30, 0, 30" BackgroundColor="RoyalBlue" BorderColor="black" HasShadow="true" ZIndex="-1" IsVisible="true"
+                   IsClippedToBounds="True">
+        <HorizontalStackLayout HeightRequest="200" >
+            <Grid ColumnDefinitions="*,*" RowDefinitions="*" ColumnSpacing="100">
+
+                <Frame WidthRequest="60" HeightRequest="60" Grid.Row="0" Grid.Column="1" HorizontalOptions="End" VerticalOptions="End" CornerRadius="80" Margin="140,0,0,0">
+                    <Image Source="user.jpg" WidthRequest="100" HeightRequest="150"  />
+                </Frame>
+                <Label x:Name="date"  Grid.Column="0" 
+                   TextColor="black" 
+                   VerticalOptions="Start" 
+                   HorizontalOptions="Start"
+                   HorizontalTextAlignment="Start"
+                              
+                          />
+            </Grid> 
+        </HorizontalStackLayout>
+    </Frame>
+    <ScrollView Margin="0,90,0,0" VerticalScrollBarVisibility="Never" >
+
+    <VerticalStackLayout>
+
+
+                <Button BackgroundColor="LightBlue"  BorderColor="Black"   CornerRadius="80" Margin="0, 20, 0, 0" 
+                   HeightRequest="60"  Text="Search for Flight"  x:Name="goSearch" Clicked="ToSearch" TextColor="White" >
+
+
+            </Button>
+            <Label Text="My Flights" Grid.Row="1" Grid.Column="0" FontSize="35"  />
+            <Label x:Name="time"/>
+            <CarouselView  IsScrollAnimated="True" 
+                          IsSwipeEnabled="True"
+                          >
+                <CarouselView.ItemsSource>
+                    <x:Array Type="{x:Type local:Flight}">
+                        <local:Flight Departure="LOM" Arrival="NYK" />
+                        <local:Flight Departure="TOV" Arrival="KSH" />
+
+                    </x:Array>
+                </CarouselView.ItemsSource>
+                <CarouselView.ItemTemplate >
+                    <DataTemplate>
+                            <Frame BorderColor="Beige" HeightRequest="150" WidthRequest="250" CornerRadius="20" BackgroundColor="LightBlue"
+                               HasShadow="True"  >
+                            <Frame.Shadow>
+                                <Shadow Radius="20" Brush="Black" Offset="0.1,1" Opacity="0.8"/>
+
+
+                            </Frame.Shadow>
+                            <!--<Frame.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                    <GradientStop Color="#86CD82" Offset="0.0" />
+                                    <GradientStop Color="#72A276" Offset="0.25" />
+                                    <GradientStop Color="#5E747F" Offset="0.75" />
+                                    <GradientStop Color="LightBlue" Offset="1.0" />
+                                </LinearGradientBrush>
+                            </Frame.Background>-->
+                            <Grid Padding="1.0"  VerticalOptions="Center" >
+
+                                <Label  Text="{Binding Departure}" FontSize="25" FontAttributes="Bold" TextColor="White" />
+                                <Label Grid.Column="2" Text="{Binding Arrival}" FontSize="25"  FontAttributes="Bold"
+                                   HorizontalTextAlignment="End"  TextColor="White" />
+
+
+                            </Grid>
+                        </Frame>
+
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+            <Label Text="Discover " FontSize="35"/>
+
+            <CarouselView>
+                <CarouselView.ItemsSource >
+                    <x:Array Type="{x:Type local:Flight}">
+                        <local:Flight Departure="LOM" Arrival="NYK" />
+                        <local:Flight Departure="TOV" Arrival="KSH" />
+                        <local:Flight Departure="LOM" Arrival="NYK" />
+                        <local:Flight Departure="TOV" Arrival="KSH" />
+
+                    </x:Array>
+                </CarouselView.ItemsSource>
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BackgroundColor="Transparent" Margin="0, 30, 0, 0" BorderColor="AntiqueWhite" HeightRequest="400" WidthRequest="250">
+
+                            <Grid Padding="1.0"  VerticalOptions="Center">
+
+                                <Label  Text="{Binding Departure}"  />
+                                <Label Grid.Column="2" Text="{Binding Arrival}"
+                                   HorizontalTextAlignment="End" />
+
+
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+
+
+            
+        </VerticalStackLayout>
+
+    </ScrollView>
+        <VerticalStackLayout HorizontalOptions="End" VerticalOptions="End"
+                             Padding="10"
+                             Margin="0,0,-100,80"
+                             x:Name="floatingbtns"
+                             Spacing="5"
+                            >
+            <Button Text="One Way" WidthRequest="80" HeightRequest="80"  CornerRadius="75" Clicked="ToOneWay"
+                    BackgroundColor="LightBlue"
+                    x:Name="ow"/>
+            <Button Text="Round" WidthRequest="80" HeightRequest="80"  CornerRadius="75" Clicked="ToRoundTrip" x:Name="rt"
+                    BackgroundColor="LightBlue"/>
+
+        </VerticalStackLayout>
+        <Button Text="Book" WidthRequest="80" HeightRequest="80" 
+                HorizontalOptions="End" VerticalOptions="End"
+                Clicked="Action" CornerRadius="75"
+                Padding="10"
+                BackgroundColor="LightBlue"
+                x:Name="bookbtn"/>
+            
+    </Grid>
+
+</ContentPage>

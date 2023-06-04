@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SkyPlanner.Pages.ChoosePages.ChoosePassenger"
+             Title="Travelers" >
+    <VerticalStackLayout>
+        <Grid RowDefinitions="100,100,100" ColumnDefinitions="5*,*,*,*" >
+            <VerticalStackLayout Grid.Row="0" VerticalOptions="Center" HorizontalOptions="Start" >
+                <Label>Adults</Label>
+                <Label>12+ years</Label>
+            </VerticalStackLayout>
+
+            <Button  Text="_" HeightRequest="50" Grid.Column="1"  Grid.Row="0" WidthRequest="50" VerticalOptions="Center"  Margin="-70,0,0,0" Clicked="Aminus"  />
+            <Label  Text="1" Grid.Column="2"  Grid.Row="0" VerticalOptions="Center" x:Name="anumber" />
+            <Button Text="+" HeightRequest="50" Grid.Column="2"  Grid.Row="0" WidthRequest="50"  VerticalOptions="Center" Margin="70,0,0,0" Clicked="Aplus" />
+
+            <VerticalStackLayout Grid.Row="1" VerticalOptions="Center">
+                <Label>Children</Label>
+                <Label>2-12 years</Label>
+            </VerticalStackLayout>
+            <Button  Text="_" HeightRequest="50" Grid.Column="1"  Grid.Row="1" WidthRequest="50" VerticalOptions="Center" Margin="-70,0,0,0" Clicked="Cminus"/>
+            <Label Text="0" Grid.Column="2"  Grid.Row="1" VerticalOptions="Center" x:Name="cnumber" />
+            <Button  Text="+" HeightRequest="50" Grid.Column="2"  Grid.Row="1" WidthRequest="50"  VerticalOptions="Center" Margin="70,0,0,0" Clicked="Cplus"/>
+            <VerticalStackLayout Grid.Row="2" VerticalOptions="Center">
+                <Label>Infants</Label>
+                <Label>Under 2 years</Label>
+
+            </VerticalStackLayout >
+            <Button x:Name="minus" Text="_" HeightRequest="50" Grid.Column="1"  Grid.Row="2" WidthRequest="50"  VerticalOptions="Center" Margin="-70,0,0,0" Clicked="Iminus" />
+            <Label x:Name="inumber" Text="0" Grid.Column="2"  Grid.Row="2" VerticalOptions="Center"/>
+            <Button x:Name="plus" Text="+" HeightRequest="50" Grid.Column="2"  Grid.Row="2" WidthRequest="50" VerticalOptions="Center" Margin="70,0,0,0"  Clicked="Iplus"/>
+        </Grid>
+
+        <Button Text="Done" VerticalOptions="End" Margin="0,50,0,0"  Clicked="ToBack" />
+    </VerticalStackLayout>
+
+
+</ContentPage>

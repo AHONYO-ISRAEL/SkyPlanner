@@ -1,0 +1,35 @@
+﻿<?xml version = "1.0" encoding = "UTF-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SkyPlanner"
+             xmlns:pages="clr-namespace:SkyPlanner.Pages"
+             xmlns:subpages="clr-namespace:SkyPlanner.Pages.BookPages"
+             x:Class="SkyPlanner.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
+                <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+    <Application.MainPage>
+        
+        <Shell FlyoutHeight="600" FlyoutWidth="250" FlyoutBackgroundColor="#bdd8dd"   >
+            
+            <FlyoutItem Title="Homepage">
+                <ShellContent  ContentTemplate="{DataTemplate pages:Home}" />
+            </FlyoutItem>
+
+            <FlyoutItem Title="Profile">
+                <ShellContent  ContentTemplate="{ DataTemplate pages:Profile}" />
+            </FlyoutItem>
+            <FlyoutItem Title="Book a flight">
+                <ShellContent ContentTemplate="{DataTemplate subpages:OneWay }" Title="One-Way" />
+                <ShellContent ContentTemplate="{DataTemplate subpages:RoundTrip }" Title="Round-Trip"/>
+            </FlyoutItem>
+
+        </Shell>
+        
+    </Application.MainPage>
+</Application>

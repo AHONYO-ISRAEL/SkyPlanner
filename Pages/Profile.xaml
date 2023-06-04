@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SkyPlanner.Pages.Profile"
+             Title="Profile">
+    <ScrollView>
+        <VerticalStackLayout>
+            <Frame HeightRequest="180" Margin="0,-100,0,0"  VerticalOptions="Start" Padding="0, -30, 0, 30" BackgroundColor="#bdd8dd" BorderColor="black" HasShadow="true" ZIndex="-1" IsVisible="true"
+                   IsClippedToBounds="True">
+                <HorizontalStackLayout HeightRequest="200" >
+                    <Grid ColumnDefinitions="*,*" RowDefinitions="*" ColumnSpacing="100">
+
+                        <Frame WidthRequest="100" HeightRequest="100" Grid.Row="0" Grid.Column="1" HorizontalOptions="End" VerticalOptions="End" CornerRadius="100" Margin="140,0,0,0">
+                            <Image Source="user.jpg" WidthRequest="100" HeightRequest="150"  />
+                        </Frame>
+                        <Label x:Name="date"  Grid.Column="0" 
+                   TextColor="black" 
+                   VerticalOptions="Start" 
+                   HorizontalOptions="Start"
+                   HorizontalTextAlignment="Start"
+                              
+                          />
+                    </Grid>
+                </HorizontalStackLayout>
+            </Frame >
+            <Label Text="Manage your account" />
+            <Frame BackgroundColor="Transparent"  WidthRequest="200"   >
+                <VerticalStackLayout>
+                    <Image Source="user.jpg" />
+                    <Label Text="Your Details" />
+                </VerticalStackLayout>
+            </Frame>
+            <Frame BackgroundColor="Transparent">
+                <VerticalStackLayout>
+                    <Image Source="user.jpg" />
+                    <Label Text="Your Details" />
+                </VerticalStackLayout>
+            </Frame>
+            <Frame BackgroundColor="Transparent">
+                <VerticalStackLayout>
+                    <Image Source="user.jpg" />
+                    <Label Text="Your Details" />
+                </VerticalStackLayout>
+            </Frame>
+            <Frame BackgroundColor="Transparent">
+                <VerticalStackLayout>
+                    <Image Source="user.jpg" />
+                    <Label Text="Your Details" />
+                </VerticalStackLayout>
+            </Frame>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

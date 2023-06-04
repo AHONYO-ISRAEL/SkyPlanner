@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SkyPlanner.Pages.BookPages.RoundTrip"
+             Title="RoundTrip">
+    <Grid Padding="10">
+
+        <Frame HeightRequest="250" VerticalOptions="Start"  CornerRadius="30" Margin="0,-60,0,0"  HasShadow="True">
+            <Image Source="oneway.jpg"  VerticalOptions="End" Margin="0,30,0,0" />
+        </Frame>
+
+        <VerticalStackLayout VerticalOptions="Center" Margin="0,100,0,0">
+
+
+            <Grid ColumnDefinitions="*,*" RowDefinitions="80,80,80,*" Margin="0, 50,0,0" Padding="20" RowSpacing="10" ColumnSpacing="30">
+                <Frame Grid.ColumnSpan="2" CornerRadius="40" HasShadow="True" >
+                    <Entry Placeholder="Departing From" TextColor="Black"/>
+                </Frame>
+                <Frame Grid.ColumnSpan="2" Grid.Row="1" CornerRadius="40"  HasShadow="True"  >
+                    <Entry Placeholder="Flying To" TextColor="Black" VerticalOptions="Center" VerticalTextAlignment="Center"  />
+                </Frame>
+                <Frame  Grid.Row="2" Grid.Column="0"    CornerRadius="20" HasShadow="True" >
+                    <DatePicker  TextColor="Black" DateSelected="SelectDate"  VerticalOptions="End"  />
+                </Frame>
+                <Frame  Grid.Row="2" Grid.Column="1"  CornerRadius="20" HasShadow="true" >
+                    <DatePicker  TextColor="Black" DateSelected="SelectDate"    />
+                </Frame>
+
+                <Frame BackgroundColor="Transparent" x:Name="iconFrame" Grid.Row="3" BorderColor="Transparent">
+
+
+                    <HorizontalStackLayout  >
+                        <Label x:Name="anumber" />
+                        <Image Source="adult.png" HeightRequest="30" />
+                        <Label x:Name="cnumber" />
+                        <Image  Source="children.png"/>
+                        <Label x:Name="inumber" />
+                        <Image Source="infant.png"/>
+                    </HorizontalStackLayout>
+                </Frame>
+                <Picker x:Name="choicePicker" Title="Choose class" Grid.Row="3" Grid.Column="1" HorizontalTextAlignment="Center" VerticalTextAlignment="End" VerticalOptions="Center" FontSize="15">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Economy</x:String>
+                            <x:String>Premium Economy</x:String>
+                            <x:String>Business</x:String>
+                            <x:String>First</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+
+
+            </Grid>
+            <Button Text="Continue" TextColor="Black"  Clicked="Toflight" BackgroundColor="LightBlue" />
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>
